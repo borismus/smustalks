@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <title>Bootcamp, HTML5 and Dev Tools - Google I/O</title>
+
+    <meta charset='utf-8' />
+    <script src="slides.js"></script>
+  </head>
+  
+  <style>
+    /* Your individual styles here, or just use inline styles if that’s
+       what you want. */
+    
+    
+  </style>
+
+  <body style='display: none'>
+
+    <section class='slides'>
+
+      <article class='biglogo'>
+      </article>
+
+      <article>
+          <img src="images/cake.png" style="float:right;"/>
+        <h1>
+          HTML5 Development
+          <br>
+          with the Chrome Dev Tools
+        </h1>
+        <p>
+          Boris Smus &amp; Paul Irish
+          <br>
+          May 9, 2011
+          <br>
+          #iobootcamp
+        </p>
+      </article>
+
+      <article>
+        <h3>Logistics</h3>
+        <ul>
+          <li>Use Chrome Canary or Developer Channel: <a href="http://goo.gl/PcNH">goo.gl/PcNH</a></li>
+          <img style="float:right; margin:-20px;" src="https://chart.googleapis.com/chart?chs=450x450&cht=qr&chl=www.speakermeter.com/talks/html5-dev-tools/&choe=UTF-8"/>
+          <li>Download course materials: <a href="http://goo.gl/FFEmd">goo.gl/FFEmd</a></li>
+          <li>Feedback with speaker meter: <a href="http://goo.gl/tzrE0">goo.gl/tzrE0</a></li>
+        </ul>
+      </article>
+
+      <article>
+      <h3>Format <a style="float:right;" href="http://goo.gl/FFEmd">goo.gl/FFEmd</a></h3>
+        <ul>
+          <li>Introduce feature, demo it, let you build</li>
+          <li>Interactive lab - ask questions</li>
+          <li>We have awesome TAs</li>
+          <li><code>#html5-dev-tools</code> on freenode: <a href="http://goo.gl/nhPmP">goo.gl/nhPmP</a></li>
+          <li>There is a cheatsheet!</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>What we'll cover <a style="float:right;" href="http://goo.gl/FFEmd">goo.gl/FFEmd</a></h3>
+        <ul>
+          <li>Styling</li>
+          <li>Transitions and transforms</li>
+          <li>Feature detection</li>
+          <li>Profiling</li>
+          <li>Breakpoints</li>
+          <li>A surprise!</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>The Todo List <a style="float:right;" href="http://goo.gl/FFEmd">goo.gl/FFEmd</a></h3>
+        <ul>
+          <li>What's in the zip?</li>
+          <li>Improve in six modules
+            <ul>
+              <li>start from <code>todo/index.html</code>
+              <li>Jump to <code>modules/M<em>x</em>/index.html</code> if you fall behind
+            </ul>
+          </li>
+          <li>Uses Backbone.js lightweight JS MVC Framework</li>
+          <li>Builds on jQuery and Underscore.js</li>
+          <li>Code walkthrough <small>(thanks Jérôme Gravel-Niquet)</small></li>
+        </ul>
+      </article>
+
+      <article>
+        <h1>MODULE 1: Styling</h1>
+        <p>CSS and the Chrome Developer Tools</p>
+      </article>
+
+      <article>
+        <h3>CSS Features</h3>
+        <ul>
+          <li>Rounded corners</li>
+          <li>Text and Box Shadows</li>
+          <li>Gradients (<a
+            href="http://leaverou.me/css3patterns/">leaverou.me/css3patterns</a>)</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>CSS Dev Tools</h3>
+        <ul>
+          <li>Edit inline</li>
+          <li>Add new styles</li>
+          <li>Edit the stylesheet directly</li>
+          <li>+ versioning</li>
+          <li>Color features (also see: <a
+            href="http://mothereffinghsl.com/">mothereffinghsl.com</a>)</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Build it!</h3>
+        <p>
+        Use your favorite CSS and the devtools to make your todo list app look
+        awesome
+        </p>
+        <ul>
+          <li>CSS3 patterns: <a href="http://leaverou.me/css3patterns/">leaverou.me/css3patterns</a></li>
+          <li>HSL: <a href="http://mothereffinghsl.com/">mothereffinghsl.com</a></li>
+          <li>Web Fonts: <a href="http://www.google.com/webfonts">google.com/webfonts</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h1>MODULE 2: Transitions and transforms</h1>
+      </article>
+
+      <article>
+        <h3>Transitions</h3>
+        <ul>
+          <li>Easy way to implement gradual state changes</li>
+          <li>Timing functions</li>
+          <li><code>-webkit-transition: all 0.5s ease-in;</code></li>
+          <li><code>webkitTransitionEnd</code> event</li>
+        </ul>
+      </article>
+
+
+      <article>
+         <h3>Transforms</h3>
+         <ul>
+           <li>Hardware acceleration!</li>
+         </ul>
+         
+         <pre class="transformpre"><b>-webkit-transform</b>: <em>rotate</em>(-10deg) <em>scale</em>(1.5);</pre> 
+           <table class='transformTable'> 
+             <tr> 
+               <th>rotate(-45deg)</th> 
+               <th>rotate(-15deg)</th> 
+               <th>rotate(15deg)</th> 
+               <th>rotate(45deg)</th> 
+               <th>rotate(75deg)</th> 
+             </tr> 
+             <tr> 
+               <td> 
+                 <img class='rotate1' src='images/puzzle-sm.png' /> 
+               </td> 
+               <td> 
+                 <img class='rotate2' src='images/puzzle-sm.png' /> 
+               </td> 
+               <td> 
+                 <img class='rotate3' src='images/puzzle-sm.png' /> 
+               </td> 
+               <td> 
+                 <img class='rotate4' src='images/puzzle-sm.png' /> 
+               </td> 
+               <td> 
+                 <img class='rotate5' src='images/puzzle-sm.png' /> 
+               </td> 
+             </tr> 
+             <tr> 
+               <th>scale(0.2)</th> 
+               <th>scale(0.5)</th> 
+               <th>scaleX(0.5)</th> 
+               <th>scaleX(2.0)</th> 
+               <th>scaleY(1.5)</th> 
+             </tr> 
+             <tr> 
+               <td> 
+                 <img class='scale1' src='images/puzzle-sm.png' /> 
+               </td> 
+               <td> 
+                 <img class='scale2' src='images/puzzle-sm.png' /> 
+               </td> 
+               <td> 
+                 <img class='scale3' src='images/puzzle-sm.png' /> 
+               </td> 
+               <td> 
+                 <img class='scale4' src='images/puzzle-sm.png' /> 
+               </td> 
+               <td> 
+                 <img class='scale5' src='images/puzzle-sm.png' /> 
+               </td> 
+             </tr> 
+             <tr> 
+               <th>skewX(10deg)</th> 
+               <th>skewX(20deg)</th> 
+               <th>skewX(30deg)</th> 
+               <th>skewX(40deg)</th> 
+               <th>skewX(50deg)</th> 
+             </tr> 
+             <tr> 
+               <td> 
+                 <img class='skew1' src='images/puzzle-sm.png' /> 
+               </td> 
+               <td> 
+                 <img class='skew2' src='images/puzzle-sm.png' /> 
+               </td> 
+               <td> 
+                 <img class='skew3' src='images/puzzle-sm.png' /> 
+               </td> 
+               <td> 
+                 <img class='skew4' src='images/puzzle-sm.png' /> 
+               </td> 
+               <td> 
+                 <img class='skew5' src='images/puzzle-sm.png' /> 
+               </td> 
+             </tr> 
+           </table> 
+         
+         
+       </article>
+
+      <article>
+        <h3>Build it!</h3>
+        <p>
+        Retrofit the todo app with amazing effects whenever the user
+        deletes a todo item.
+        <ul>
+          <li>CSS3 Please: <a href="http://css3please.com/">css3please.com</a></li>
+          <li>Transforms sandbox: <a href="http://goo.gl/nHUOe">http://goo.gl/nHUOe</a></li>
+        </ul>
+        
+         <pre class="lang-css">
+/* see and tweak at the bottom of todos.css */
+
+#todo-list li {
+ -webkit-transition: all 0.001s linear;
+}
+
+#todo-list li.removing {
+ -webkit-transform: scale(1);
+}</pre> 
+         
+        </p>
+      </article>
+
+      <article>
+        <h1>MODULE 3: Feature detection</h1>
+        <ul>
+          <li>Safely add new features</li>
+          <li>Polyfills</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Example: Geolocation</h3>
+        <ul>
+          <li>Make location-aware HTML5 apps</li>  </ul>
+          <pre>
+navigator.<a href="https://developer.mozilla.org/en/using_geolocation">geolocation</a>.getCurrentPosition(function (position) {
+  // position.coords.latitude
+  // position.coords.longitude
+})
+          </pre>
+          
+      
+      </article>
+
+      <article>
+        <h3>Modernizr and Polyfills</h3>
+        <ul>
+          <li>Compatibility tables: <a
+            href="http://caniuse.com/">caniuse.com</a></li>
+          <li><a href="http://www.modernizr.com/">Modernizr</a> does feature detection</li>
+
+        </ul>
+      </article>
+
+      <article>
+        <h3>Build it!</h3>
+        <p>
+        Make your todo app location aware. Be sure to feature detect to ensure that
+        the browser supports geolocation. 
+        
+        </p>
+        <ul>
+          <li>Feature detection: <a href="http://www.modernizr.com/">Modernizr</a></li>
+          <li>Note: geolocation won't work in file:// URLs</li>
+          <code>python -m SimpleHTTPServer</code>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Build it!</h3>
+        <p>For bonus points, use <a href="http://yepnopejs.com/">yepnope</a> to load a polyfill if there's no geolocation support.
+        <ul>
+          <li>Examples of polyfills: 
+          <a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills">long list</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h1>MODULE 4: Profiling</h1>
+       
+      </article>
+      
+      
+      <article>
+         <h3>Why Profile?</h3>
+         <ul>
+           <li>Assess the execution style of your app</li>
+           <li>Identify slow code paths
+           <li>Prioritize your bottlenecks
+
+         </ul>
+         <br>
+         <p>How to do it in devtools?</p>
+       </article>
+       
+
+      <article>
+        <h3>Fix it!</h3>
+        <p>
+        Why does clearing todo items take so long? Find the problem using the
+        debugger and fix it.
+
+        <!-- TODO(smus): find a less contrived example. -->
+        </p>
+      </article>
+
+      <article>
+        <h1>MODULE 5: Breakpoints</h1>
+        <ul>
+          <li>Different kinds of breakpoints</li>
+          <li>How to do it in devtools?</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Breakpoints in Devtools</h3>
+        <ul>
+          <li>Regular breakpoints</li>
+          <li>Conditional breakpoints</li>
+          <li>DOM breakpoints</li>
+          <li>Event Listener breakpoints</li>
+          <li>XHR breakpoints</li>
+          
+        
+        </ul>
+      </article>
+
+      <article>
+        <h3>Build it!</h3>
+        <p>
+        Try out all of the breakpoints. Break in some critical cases such as
+        when you have no more todo items left in the list. </p>
+        
+        <p>Write a conditional statement to add functionality when all the todo items have been checked off.
+        </p>
+        <pre>
+          
+// check remaining items in toggle method
+
+Todos.remaining().length // active todo items remaining
+
+// if it is zero, do something interesting
+        </pre>
+      </article>
+
+
+      <article>
+        <h1>MODULE 6: Panache</h1>
+        <ul>
+          <li>Add a touch more fun</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Build it!</h3>
+        <p>
+        Grab source from powpow.html and drop into the bottom of your app. 
+        
+        </p>
+       <p>Change around the particle options in <code>setupParticle()</code>.</p>
+      </article>
+      
+      
+      
+      <article>
+        <h3>Build it!</h3>
+        
+        <p>Call <code>yay()</code> when there are no more todos.</p>
+       
+       
+      </article>
+      
+       
+
+      <article>
+        <h3>Summary</h3>
+        <ul>
+          <li>Best Todo List Ever!</li>
+          <li>Rich Chrome Developer Tools Features</li>
+          <li>Styling, transitions and transforms, feature detection</li>
+          <li>Profiling, breakpoints, awesomeness</li>
+        </ul>
+      </article>
+
+      <article>
+        <h1>Thanks + Free cake!</h1>
+        <ul>
+        <p>
+          Paul Irish: @paul_irish
+          <br>
+          Boris Smus: @borismus
+        </p>
+        </ul>
+      </article>
+    </section>
+
+  </body>
+</html>

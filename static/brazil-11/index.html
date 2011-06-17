@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<!--
+  Google I/O 2011 HTML slides template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/io-2011-slides/
+-->
+
+<html>
+  <head>
+    <title>Building Web Apps with HTML5 and Chrome</title>
+
+    <meta charset='utf-8' />
+    <script src='slides.js'></script>
+  </head>
+  
+  <style>
+    /* Your individual styles here, or just use inline styles if that’s
+       what you want. */
+    
+    
+  </style>
+
+  <body style='display: none'>
+
+    <section class='slides layout-regular'>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+        
+        
+      
+      <article class='biglogo'></article>
+
+      <article>
+        <h1>
+          Building Web Apps with<br/>
+          HTML5 and Chrome
+        </h1>
+        <p>
+          Boris Smus
+          <br>
+          May 2011
+          <br>
+          <a href="http://goo.gl/7ir1e">http://goo.gl/7ir1e</a>
+        </p>
+      </article>
+
+      <article>
+      <h3>What makes a web application great?</h3>
+      <ul>
+        <li>Narrow focus</li>
+        <li>User experience...</li>
+        <ul class="build">
+          <li><strong>1. Make it look good</strong></li>
+          <li><strong>2. Make it immersive and interactive</strong></li>
+          <li><strong>3. Make it fast and responsive</strong></li>
+        </ul>
+      </ul>
+      </article>
+
+      <article class="biglogo html5">
+      </article>
+
+      <article>
+      <h1>1. Make it look good</h1>
+      </article>
+
+      <article>
+        <h3>CSS3</h3>
+        <ul class="build">
+          <li>
+          Many features: <a href="http://css3please.com/">CSS3 feature playground</a>
+          </li>
+          <li>
+          Powerful techniques: <a href="http://leaverou.me/css3patterns/">CSS3 patterns</a>
+          </li>
+          <li style="display:none;">
+          Font embedding: <a href="http://google.com/webfonts">Google Web Fonts</a>
+          </li>
+          <li>
+          Responsive design: <a href="http://mediaqueri.es/popular/">media query gallery</a>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>CSS3 Transitions and Transforms</h3>
+        <ul class="build">
+          <li>
+          Transitions: make your CSS properties animate from one value to another
+          </li>
+          <li>
+          Transforms: <a href="http://www.westciv.com/tools/transforms/index.html">CSS3 transforms sandbox</a>
+          </li>
+          <li>
+          Note: hardware accelerated! <a href="http://www.keithclark.co.uk/labs/3dcss/demo/">CSS FPS</a>
+<pre>
+-webkit-transform: translateZ(0);
+</pre>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+      <h1>2. Make it immersive and interactive</h1>
+      </article>
+
+      <article>
+        <h3>Multimedia</h3>
+        <ul class="build">
+          <li>
+          &lt;video&gt; and &lt;audio&gt; tags for first-class video
+<pre>
+&lt;video id="video" src="movie.webm" autoplay controls&gt;&lt;/video&gt;
+&lt;script&gt;document.getElementById("video").play();&lt;/script&gt;
+</pre>
+          </li>
+          <li>
+          Upcoming Web Audio API. <a href="http://www.htmlfivewow.com/demos/hal/index.html">GAL 9000</a>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Graphics on the Web</h3>
+        <ul class="build">
+          <li>
+          Canvas for 2D: <a href="http://gwtcanvasdemo.appspot.com/">interactive demo</a>
+          </li>
+          <li>
+          Embed images and video: <a href="http://craftymind.com/factory/html5video/CanvasVideo.html">canvas + video tag</a>
+          <li>
+          WebGL for 3D: <a href="http://ro.me">ROME</a>, <a href="http://chrome.angrybirds.com">Angry Birds</a>
+          </li>
+          <li>
+          Libraries to make it easier: <a href="http://scenejs.org/">SceneJS</a>, <a href="http://senchalabs.github.com/philogl/">PhiloGL</a>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Device specific APIs</h3>
+        <ul class="build">
+          <li>
+          Accelerometer access
+<pre>
+window.addEventListener('deviceorientation', function(event) {
+  var a = event.alpha;
+  var b = event.beta;
+  var g = event.gamma;
+}, false);
+</pre>
+          </li>
+          <li>
+          Geolocation <a href="http://maps.google.com/">google maps</a>
+<pre>
+navigator.geolocation.getCurrentPosition(function(position) {
+  var lat = position.coords.latitude; // same for longitude
+});
+</pre>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+      <h1>3. Make it fast and responsive.</h1>
+      </article>
+
+      <article>
+        <h3>Cache assets</h3>
+        <ul class="build">
+          <li>Download big assets only once</li>
+          <li>AppCache Manifest:
+<pre>
+CACHE MANIFEST
+index.html
+stylesheet.css
+images/logo.png
+scripts/main.js
+</pre>
+          </li>
+          <li>5MB but can get more with Chrome Web Store</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Store local data locally</h3>
+        <ul class="build">
+          <li>Save HTTP requests</li>
+          <li>localStorage for simple key-value storage</li>
+<pre>
+if (!localStorage["checkins"]) {
+  localStorage["checkins"] = JSON.stringify([]);
+}
+</pre>
+          <li>Simplify with <a href="http://westcoastlogic.com/lawnchair/">lawnchair.js</a></li>
+          <li>Indexed DB for more complex data</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Web Sockets</h3>
+        <ul class="build">
+          <li>Faster HTTP requests</li>
+          <li>Better for notifications than polling and long-polling
+<pre>
+var connection = new WebSocket('ws://example.org/echo');
+</pre>
+          </li>
+          <li>
+          Access local websocket server for OS-level features.
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Web Workers</h3>
+        <ul class="build">
+          <li>Parallel processing in the browser</li>
+          <li>Never block the UI thread! <a href="http://slides.html5rocks.com/#web-workers">demo</a></li>
+<pre>
+var worker = new Worker('doWork.js');
+
+worker.addEventListener('message', function(e) {
+  console.log('Worker said: ', e.data);
+}, false);
+
+worker.postMessage('Hello World'); // Send data to our worker.
+</pre>
+        </ul>
+      </article>
+
+      <article>
+      <h1>Practical considerations</h1>
+      </article>
+
+      <article>
+      <h3>What about other browsers?</h3>
+      <ul class="build">
+        <li>Compatibility tables: <a href="http://caniuse.com/">When can I use...</a></li>
+        <li>Feature detection: <a href="http://modernizr.com/">Modernizr</a></li>
+        <li>Polyfills and conditional loading: <a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills">long list</a> and <a href="http://yepnopejs.com/">yepnope.js</a></li>
+        <li>Use Google Chrome Frame if it's installed:
+<pre>
+&lt;meta http-equiv="X-UA-Compatible" content="chrome=1"&gt;
+</pre>
+        </li>
+      </ul>
+      </article>
+
+      <article>
+        <h3>
+          How do I get started?
+        </h3>
+        <ul class="build">
+          <li>
+          Template of best practices: <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>
+          </li>
+          <li>
+          Chrome developer tools are great. <a href="https://github.com/borismus/DevTools-Lab/raw/master/cheatsheet/chromedev-cheatsheet.pdf">feature overview</a>
+          </li>
+          <li>
+          Prototype in Chrome - leading edge
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Building real life complex applications</h3>
+        <ul class="build">
+          <li>Large projects need structure.</li>
+          <li>MVC frameworks: <a href="http://documentcloud.github.com/backbone/">Backbone.js</a>, <a href="http://www.sproutcore.com/">SproutCore</a></li>
+          <li>CSS frameworks: <a href="http://sass-lang.com/">SCSS</a>, <a href="http://sass-lang.com/">LESS</a></li>
+        </ul>
+      </article>
+
+      <article>
+      <h1>Distribution</h1>
+      </article>
+
+      <article class='biglogo'></article>
+
+      <article>
+      <h3>Chrome Web Store:<br/>
+      now available in Brazil!</h3>
+      <ul>
+        <li>Get user feedback (comments) and usage patterns <a href="http://code.google.com/chrome/extensions/tut_analytics.html">analytics</a></li>
+        <li>Drive traffic: <a href="http://www.google.com/intl/en/landing/chrome/webstore/create/success-stories.html">success stories</a></li>
+        <li>Get paid (coming soon to Brazil)</li>
+      </ul>
+      </article>
+
+      <article class="smaller">
+        <q>
+          Thanks to the store, our user base has increased by 780%, achieving
+          the goals we planned for the next 1/1.5 years within the first 3
+          weeks. Traffic of Todo.ly has increased even more – by almost 1000%
+        </q>
+        <div class='author'>
+          Todo.ly
+        </div>
+      </article>
+
+      <article class="smaller">
+        <q>
+          The SlideRocket app on the Chrome Web Store received over 50,000
+          installs in the first 10 days of availability and the volume hasn’t
+          yet dropped off. As much as 60% of SlideRocket’s daily lead flow now
+          comes from the Chrome Web Store.
+        </q>
+        <div class='author'>
+          SlideRocket
+        </div>
+        </article>
+
+        <article class="smaller">
+        <q>
+          First, thanks to the almost 30,000 users who have installed
+          LucidChart to date, we are one of the top paid apps and also one of
+          the highest rated apps in the Web Store.
+        </q>
+        <div class="author">
+          LucidChart
+        </div>
+        </article>
+
+        <article>
+        <h1>Publishing to the Web Store</h1>
+        <p>Walk through <a href="https://sites.google.com/site/bootcampcwslab/">tutorial</a></p>
+        </article>
+
+
+        <article>
+          <h1>Thanks!</h1>
+          <p><a href="http://twitter.com/borismus">@borismus</a></p>
+        </article>
+
+    </section>
+
+  </body>
+</html>

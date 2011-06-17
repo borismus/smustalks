@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)http://dl.dropbox.com/u/39519/talks/html5andyou/src/googleio.html#slide1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>HTML5 &amp; You</title>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <script src="./assets/box2d.min.js"></script>
+    <script src="./assets/jquery-1.4.2.js"></script>
+    <script src="./assets/slide-presentation.js"></script>
+    <script src="./assets/slide-content.js"></script>
+    <script src="./assets/worker-lib.js"></script>
+    
+    <link href="./assets/css" rel="stylesheet" type="text/css">
+    
+    <script src="http://www.google.com/jsapi"></script>
+    <link rel="stylesheet" href="./assets/slide-presentation.css">
+    <link rel="stylesheet" href="./assets/slide-content.css">
+    <link href='http://fonts.googleapis.com/css?family=Molengo|Yanone+Kaffeesatz|Droid+Serif|OFL+Sorts+Mill+Goudy+TT|Inconsolata|Lobster|Cantal|Josefin+Sans+Std+Light|Reenie+Beanie' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class="presentation"><div class="presentationCounter">1</div>
+      <div class="slides">
+
+
+<!--
+ *
+ * Session Title
+ *
+-->
+
+
+<div class="slide current">
+  <section class="center">
+    <div class="titleContent">
+      <img id="html5logo" src="./assets/html5logo.svg">
+      <h2 class="titleTitle">
+        <strong class="html5">and You!</strong>
+      </h2>
+      <p class="titleText">
+        Paul Irish and Boris Smus<br>
+        Google Chrome, Developer Programs Engineers<br><br>
+    
+      </p>
+     
+
+    </div>
+  </section>
+</div>
+
+
+
+
+<!--
+ *
+ * HTML5 is...
+ *
+-->
+<div class="slide clickable future" id="slide-physics">
+  <section class="hidden">
+    <div class="physicsText">What is...</div>
+    <div class="physicsText" style="visibility:hidden">“</div>
+    <div class="physicsText" style="visibility:hidden">”</div>
+    <div class="physicsText">...built on?</div>
+    
+    <li class="physicsBox">Web Storage</li>
+    <li class="physicsBox">Web SQL Database</li>
+    <li class="physicsBox">IndexedDB</li>
+    <li class="physicsBox">App Cache</li>
+    <li class="physicsBox">postMessage</li>
+    <li class="physicsBox">Notifications</li>
+    <li class="physicsBox">Geolocation</li>
+    <li class="physicsBox">Dedicated Workers</li>
+    <li class="physicsBox">Shared Workers</li>
+    <li class="physicsBox">File API </li>
+    <li class="physicsBox">Drag and Drop</li>
+    <li class="physicsBox">Web Sockets</li>
+    <li class="physicsBox">History State</li>
+    <li class="physicsBox">MessagePorts</li>
+    <li class="physicsBox">CORS</li>
+    <li class="physicsBox">audio tag</li>
+    <li class="physicsBox">video tag</li>
+    <li class="physicsBox">canvas 2D</li>
+    <li class="physicsBox">WebGL</li>
+    <li class="physicsBox">ruby tag</li>
+    <li class="physicsBox">sectioning tags</li>
+    <li class="physicsBox">input types</li>
+    <li class="physicsBox">SVG</li>
+    <li class="physicsBox">querySelector</li>
+    <li class="physicsBox">microdata</li>
+    <li class="physicsBox">link relations</li>
+    <li class="physicsBox">data-* attributes</li>
+    <li class="physicsBox">link prefetching</li>
+ 
+    <div class="physicsBoxMask">HTML5</div>
+  <section>
+</section></section></div>
+<script>
+  $(window).bind('load', function() {
+    var slide = document.getElementById('slide-physics');
+    $(slide).find('.hidden').removeClass('hidden');
+    window.pb = new PhysicsBox(slide);
+  });
+</script>
+
+
+
+ 
+<div class="slide far-future"> 
+  <header>Canvas</header> 
+  <section class="hbox "> 
+    <ul> 
+    
+       <li>Basic <code>&lt;canvas&gt;</code> in action
+         <div><canvas id="basiccanvas" width="838" height="220"></canvas>
+           <pre>var canvasContext = document.getElementById("canvas").getContext("2d");
+canvasContext.fillRect(250, 25, 150, 100);
+
+canvasContext.beginPath();
+canvasContext.arc(450, 110, 100, Math.PI * 1/2, Math.PI * 3/2);
+canvasContext.lineWidth = 15;
+canvasContext.lineCap = 'round';
+canvasContext.strokeStyle = 'rgba(255, 127, 0, 0.5)';
+canvasContext.stroke();</pre>
+ 
+         </div>
+     </li>
+      <li><a href="http://tinyurl.com/stogas3dmario">three.js voxel mario</a>.
+     </li></ul> 
+  </section> 
+</div> 
+
+<script>
+   var canvasContext = document.getElementById("basiccanvas").getContext("2d");
+   canvasContext.fillRect(250, 25, 150, 100);
+
+   canvasContext.beginPath();
+   canvasContext.arc(450, 110, 100, Math.PI * 1/2, Math.PI * 3/2);
+   canvasContext.lineWidth = 15;
+   canvasContext.lineCap = 'round';
+   canvasContext.strokeStyle = 'rgba(255, 127, 0, 0.5)';
+   canvasContext.stroke();
+ </script>
+
+<div class="slide far-far-future"> 
+  <header>WebGL</header> 
+  <section class="hbox "> 
+    <ul> 
+       <li><a href="https://mozillademos.org/demos/remixingreality/demo.html">Mozilla's Remixing Reality demo</a>
+       </li><li><pre>uniform float time;
+uniform vec2 resolution;
+
+void <a href="http://mrdoob.com/lab/javascript/webgl/glsl/02/">main</a>( void ) {
+
+  vec2 position = - 1.0 + 2.0 * gl_FragCoord.xy / resolution.xy;
+  float red = abs( sin( position.x * position.y + time / 5.0 ) );
+  float green = abs( sin( position.x * position.y + time / 4.0 ) );
+  float blue = abs( sin( position.x * position.y + time / 3.0 ) );
+  gl_FragColor = vec4( red, green, blue, 1.0 );
+
+}</pre></li>
+
+       
+       <li>use <a href="https://github.com/mrdoob/three.js/">three.js</a> or <a href="http://senchalabs.github.com/philogl/">PhiloGL</a>
+     </li></ul> 
+  </section> 
+</div> 
+
+
+<div class="slide far-far-future"> 
+  <header>CSS Transforms</header> 
+  <section class="hbox "> 
+    <ul> 
+       <li><pre>transform: rotate(45deg) scale(1.5) translate(50px,70px)</pre></li>  <!-- get from other slide deck -->
+       <li><a href="http://css3please.com/">CSS3 Please</a>
+       </li><li>combos well with transitions.
+       </li><li><a href="http://is-real.net/experiments/css3/wonder-webkit/">Wonder Webkit Wall</a>
+       
+     </li></ul> 
+  </section> 
+</div> 
+
+
+<div class="slide far-far-future"> 
+  <header>Local Storage</header> 
+  <section class="hbox "> 
+    <ul> 
+      <li>localStorage: per-domain key-value store</li>
+      <li>Demo: <a href="http://blog.disqus.com/post/3764930816/fun-with-images#disqus_thread">disqus comments</a>
+      <pre>saveButton.addEventListener('click', function () {
+  localStorage.setItem('value', area.value);
+  localStorage.setItem('timestamp', (new Date()).getTime());
+}, false);
+textarea.value = localStorage.getItem('value');
+      </pre></li>
+      <li>Check out Lawnchair.js</li>
+      <li>Others: Web SQL, IndexedDB, ...</li>
+    </ul>
+  </section>
+</div>
+
+<!--
+<div class="slide"> 
+  <header>Local Databases</header> 
+  <section class="hbox "> 
+    <ul> 
+      <li>Web SQL: SQL in your browser! <pre>
+webdb.db.transaction(function(tx) {
+  var addedOn = new Date();
+  tx.executeSql('INSERT INTO todo(todo, added_on) VALUES (?,?)', 
+    [todoText, addedOn],
+    webdb.onSuccess,
+    webdb.onError);
+});
+
+      </pre></li>
+      <li>Note: soon IndexedDB will be better to use</li>
+    </ul>
+  </section>
+</div>
+
+-->
+
+<div class="slide far-far-future"> 
+  <header>Speech input</header> 
+  <section class="hbox "> 
+    <ul> 
+			<li>Text to speech - speak into any input box</li>
+      <li>Demo: <a href="http://search.twitter.com/">voice-enabled twitter</a></li>
+      <li>Use Chrome-dev and: <pre>x-webkit-speech attribute, onspeechchange event</pre></li>
+    </ul> 
+  </section> 
+</div> 
+
+
+<div class="slide far-far-future"> 
+  <header>Device orientation</header> 
+  <section class="hbox "> 
+    <ul> 
+      <li>Demo: <a href="http://www.google.com/logos/verne.html">Jules Verne Google doodle</a></li>
+      <li>Demo: <a href="http://www.monocubed.com/2010/10/20/fight-or-flight-html5-game">Fight or Flight?</a></li>
+      <li>Access the accelerometer of the device: <pre>addEventListener('deviceorientation', function(event) {
+  var a = event.alpha;
+  var b = event.beta;
+  var g = event.gamma;
+}, false);
+      </pre></li>
+    </ul> 
+  </section> 
+</div> 
+
+
+
+
+<div class="slide far-far-future"> 
+  <header>Geolocation</header> 
+  <section class="hbox "> 
+    <ul> 
+      <li>Demo: <a href="http://maps.google.com/">Google Maps!</a></li>
+      <li>Determine the user's current location:
+        <pre>navigator.geolocation.getCurrentPosition(function(position) {
+  startPos = position;
+  document.getElementById('startLat').innerHTML = startPos.coords.latitude;
+  document.getElementById('startLon').innerHTML = startPos.coords.longitude;
+});
+        </pre>
+      </li>
+      <li>Can also track location changes with <pre>navigator.geolocation.watchPosition</pre></li>
+    </ul>
+  </section>
+</div>
+
+
+
+<div class="slide far-far-future"> 
+  <header>Web Sockets</header> 
+  <section class="hbox "> 
+    <ul> 
+      <li>Demo: <a href="http://studio.html5rocks.com/samples/websocket-ascii-video/index.html">video playback sync</a></li>
+      <li>Lightweight push notifications: <pre>var socket = new WebSocket('ws://html5rocks.websocket.org/echo');
+
+socket.onopen = function(event) {
+  socket.send('Hello, WebSocket');
+};
+
+socket.onmessage = function(event) { alert(event.data); }
+socket.onclose = function(event) { alert('closed'); }
+      </pre></li>
+    </ul>
+  </section>
+</div>
+<!--
+ *
+ * Current Status
+ *
+-->
+
+<div class="slide far-far-future">
+  <header>HTML5: Where are we now?</header>
+  <section class="hbox boxcenter">
+    
+   
+     <iframe src="./assets/saved_resource.html">
+            &lt;object data="static/images/html5rnss.png"&gt;&lt;/object&gt;
+     </iframe>
+     
+
+  </section>
+</div>
+<!--
+
+
+<div class="slide transitionSlide">
+ <section class="flex hbox boxcenter">
+   <div class="noflex vbox boxcenter">
+     <div class="section"></div>
+     <h2>What's practical to actually use?</h2>
+      
+   </div>
+ </section>
+</div>
+
+
+
+
+<div class="slide">
+  <header>Let's break this up.</header>
+  <section class="hbox boxcenter">
+    <hgroup>
+      <h4>Dependable features</h4>
+      <h4>Roughly usable features</h4>
+      <h4>Experimental features</h4>
+      <h4>Edge features</h4>
+    <hgroup>
+  </section>
+</div>
+ 
+ 
+ 
+<div class="slide">
+  <header>Dependable features</header>
+  <section class="hbox ">
+    <ul>
+       <li>doctype <div><pre>&lt;!doctype html></pre></div></li>
+       <li>charset <div><pre>&lt;meta charset="utf-8"></pre></div></li>
+       <li>self-closed tags, optional quotes <div><pre>&lt;link rel=stylesheet href=style.css /></pre></div></li>
+       <li>no more type attributes <div><pre>&lt;link rel=stylesheet <s>type="style/css"</s> href=style.css /></pre></div></li>
+       <li>new semantics <div><pre>&lt;article> &lt;nav /> &lt;section></pre></div></li>
+       <li>data-* attributes <div><pre>&lt;a data-omg="double"></pre></div></li>
+       
+       <li id="contented">contenteditable <div><a href="http://annevankesteren.nl/test/contenteditable-style.htm">contenteditable mindfuck by annevk</a></div></li>
+    </ul>
+  </section>
+</div> 
+
+
+<div class="slide">
+  <header>Roughly usable features</header>
+  <section class="hbox ">
+    <ul>
+       <li>audio &amp; video <div>  
+         </div></li>
+       <li>canvas 
+         <div>
+         <a href="http://paulirish.com/work/video2ascii/">video to ascii, by Tab Atkins</a><Br>
+         <a href="http://studio.html5rocks.com/samples/video-cube/index.html">video ascii cube</a>
+         </div>
+       </li>
+       <li>SVG</li>
+       <li>geolocation</li>
+       <li>web sockets<div> socket.io ftw</div> </li> 
+       <li>drag n drop</li>
+       <li>input autofocus</li>
+       <li>input placeholder <div><input placeholder="clear me when you click me, bitch" style="font-size: 20px; width: 360px;"></div></li>
+    </ul>
+  </section>
+</div>
+
+
+
+<div class="slide"  id="slide-worker">
+  <header>Experimental features</header>
+  <section class="hbox ">
+    <ul>
+      <li>form input types</li>
+      <li>&lt;meter> &amp; &lt;progress>
+        <div>
+            progress:
+            <progress max="100"></progress> 
+            <progress max="10" value="0"></progress> 
+            <progress max="3254" value="3254"></progress> 
+            <progress max="0.7" value="0.4"></progress> 
+            <progress id="progress-javascript-example"></progress> 
+            
+            <br>meter:
+            <meter value="0"></meter> 
+            <meter value="1"></meter> 
+            <meter min=".34" max=".41" value=".36"></meter> 
+            <meter min="50" max="250" low="100" high="200" value="120"></meter> 
+            <meter min="1024" max="10240" low="2048" high="8192" value="9216"></meter> 
+            <meter value=".5" optimum=".8"></meter> 
+            <meter id="meter-javascript-example" value="0"></progress> 
+            
+
+          <script> 
+            (function () {
+                if (! ('position' in document.createElement ('progress'))) {
+                    var elements = document.querySelectorAll ('meter, progress');
+                    for (var i = 0, j = elements.length; i < j; i++) {
+                      elements [i].style.border = "1px solid red";
+                      elements [i].style.height = "12px";
+                      elements [i].style.display = "inline-block";
+                      elements [i].style.webkitAppearance = "none";
+                    }
+
+                    return ;
+                }
+
+                /** Setup the <progress> JavaScript example **/
+                var progressExample = document.getElementById ('progress-javascript-example');
+                progressExample.min = 50;
+                progressExample.max = 122;
+
+                setInterval (function ()
+                {
+                    progressExample.value = progressExample.min + Math.random () * (progressExample.max - progressExample.min);
+
+                }, 1000);
+
+                /** We'd like some fancy <meter> examples too **/
+                var meterExample = document.getElementById ('meter-javascript-example');
+                meterExample.min = 0;
+                meterExample.max = 90;
+                meterExample.value = 50;
+                meterExample.low  = 20;
+                meterExample.high = 80;
+                meterExample.optimum = 65;
+
+                setInterval (function ()
+                {
+                    meterExample.value   = meterExample.min + Math.random () * (meterExample.max - meterExample.min);
+                    //meterExample.optimum = 65 + (5 - Math.random () * 10);
+
+                }, 1000);
+
+            })();
+          </script>
+          
+          
+        </div>
+      </li>
+      <li>web SQL database</li>
+      <li id="storageitem">web storage</li>
+      <li id="workeritem">web workers </li>
+      <li id="webglitem">WebGL <div><a href="http://webglsamples.googlecode.com/hg/aquarium/aquarium.html">Google Aquarium WebGL demo</a></div></li>
+      <li>File API <div><a href="http://dropmocks.com">Dropmocks</a></div></li>
+      <li>history.pushState</li>
+    </ul>
+    
+      </section>
+      
+        <div class="workerdemo" style="display:none;">
+      
+            <p><strong>Paint here</strong> <button class='clearButton'>Clear</button></p>
+            <canvas class='workerCanvas drawingCanvas' width='400' height='280'></canvas>
+         
+            <p><strong>Difference</strong> <button class='diffCheckbox'>Use worker</button></p>
+            <canvas class='workerDiff drawingCanvas' width='400' height='280'></canvas>
+        
+        </div>
+
+    <script>
+      jQuery(document).ready(function() {
+        var slide = document.getElementById('slide-worker');
+
+        var drawCanvas = slide.getElementsByClassName('workerCanvas')[0];
+        var diffCanvas = slide.getElementsByClassName('workerDiff')[0];
+        window.ds = new DiffScheduler(slide, drawCanvas, diffCanvas);
+        var dc = new DrawingCanvas(slide);
+        //console.log(drawCanvas,diffCanvas, ds, dc)
+        dc.setColor('#36b');
+        
+        
+
+
+        var button = slide.getElementsByClassName('clearButton')[0];
+        button.addEventListener('click', function() { dc.clear(); });
+
+        var useWorker = false;
+        var checkbox = slide.getElementsByClassName('diffCheckbox')[0];
+        checkbox.addEventListener('click', function() {
+          useWorker = !useWorker;
+          if (useWorker) {
+            dc.setColor('#d00');
+            this.innerHTML = 'Stop worker';
+          } else {
+            dc.setColor('#36b');
+            this.innerHTML = 'Use worker';
+          }
+          ds.setUseWorker(useWorker);
+        });
+      });
+    </script>
+
+</div>
+
+<div class="slide">
+ <header>Edge features</header>
+ <section class="hbox ">
+   <ul>
+     <li>hardware acceleration</li>
+     <li>IndexedDB</li>
+     <li>orientation <div>  <a href="http://jsfiddle.net/JTSug/5/show/">orientationchange with chrome</a> <a href="http://www.monocubed.com/?p=696">Fight or Flight game</a></div></li>
+     <li>&lt;device> 
+          <div><a href="https://labs.ericsson.com/blog/beyond-html5-conversational-voice-and-video-implemented-webkit-gtk">Ericsson &lt;device> video, streaming demo</a></div></li>
+     <li>audio data API 
+          <div><a href="http://videos.mozilla.org/serv/blizzard/audio-slideshow/">Firefox audio data in action</a> <small>(use Firefox minefield)</small><Br>
+                      <a href="http://chromium.googlecode.com/svn/trunk/samples/audio/index.html">WebKit audio data in action</a> <small>(use custom webkit-audio build)</small></div></li>
+      <li><code>&lt;input speech></code>
+          <div><a href="http://jsbin.com/icadu4">&lt;input x-webkit-speech>  tests</a></div></li>
+     <li>SVG filters <div>
+       <a href="http://paulirish.com/work/videooo.xhtml">MY AWESOME OCTOPUSSSSSS</a>   <small>(use Firefox minefield)</small><br>
+       <a href="http://code.bocoup.com/audio-data-api/flash-vs-html5/">F1LT3R's HTML5 Can Dance button</a>  <small>(use Firefox minefield)</small></div></li>
+   </ul>
+ </section>
+</div>
+
+
+-->
+
+<!-- this is where i talk about feature detection and modernizr -->
+
+
+<div class="slide transitionSlide far-far-future">
+ <section class="flex hbox boxcenter">
+   <div class="noflex vbox boxcenter">
+     <div class="section"></div>
+     <h2>Bbbbbbut, how??!?</h2>
+     <h4>what about IE? :/</h4>
+   </div>
+ </section>
+</div>
+
+
+
+
+<div class="slide transitionSlide far-far-future">
+ <section class="flex hbox boxcenter">
+   <div class="noflex vbox boxcenter">
+     <div class="section"></div>
+     <h2>You feature detect, right?</h2>
+   </div>
+ </section>
+</div>
+
+
+
+
+<div class="slide transitionSlide far-far-future">
+ <header><a href="http://github.com/Modernizr/Modernizr">Modernizr</a> does that.</header>
+ <section class="flex hbox boxcenter">
+     <iframe src="about:blank">
+         
+     </iframe>
+ </section>
+</div>
+
+<div class="slide transitionSlide far-far-future">
+ <header>caniuse.com</header>
+ <section class="flex hbox boxcenter">
+     <object data="http://caniuse.com/">
+          
+     </object>
+ </section>
+</div>
+
+
+<div class="slide transitionSlide far-far-future">
+ <section class="flex hbox boxcenter">
+   <div class="noflex vbox boxcenter">
+     <div class="section"></div>
+     <h2>polyfill: </h2>
+     <h3><em>(n)</em> 1. A shim that mimics a future API, providing fallback functionality to older browsers.</h3>
+     <h4>e.g. <a href="http://gist.github.com/366184">geolocation polyfill</a></h4>
+   </div>
+ </section>
+</div>
+
+
+<div class="slide transitionSlide far-far-future">
+ <section class="flex hbox boxcenter">
+   <div class="noflex vbox boxcenter">
+     <div class="section"></div>
+     <h2>BAM! <a href="http://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills" target="_blank">Cross-browser HTML5 polyfills</a></h2>
+      <h4><a href="http://mothereffinghsl.com/">mothereffinghsl.com polyfill demo</a></h4>
+   </div>
+ </section>
+</div>
+
+
+<!--
+
+<div class="slide transitionSlide">
+ <section class="flex hbox boxcenter">
+   <div class="noflex vbox boxcenter">
+     <div class="section"></div>
+     
+     <h2><a href="http://github.com/SlexAxton/yepnope.js" target="_blank">yepnope.js</a> <small><sup>1.0</sup></small></h2>
+    
+   </div>
+ </section>
+</div>
+
+-->
+
+ 
+ 
+ 
+<div class="slide transitionSlide far-far-future">
+ <section class="flex hbox boxcenter">
+   <div class="noflex vbox boxcenter">
+     <div class="section"><img src="./assets/chromelogo.png" style="position:absolute;  top: -110px;"></div>
+     <h2 style="position:relative; z-index: 1">Chrome Web Store</h2>
+   </div>
+ </section>
+</div>
+
+<!-- discoverability, monetization, new tab page 
+
+<div class="slide">
+ <header>Chrome Web Store: Advantages</header>
+ <section class="hbox boxcenter">
+   <ul>
+      <li>unlimited storage</li>
+      <li>notifications</li>
+      <li>WebGL, hardware acceleration</li>
+      <li>File API: drag in, out <div>Filesystem coming soon</div></li>
+      <li>speech attribute</li>
+      <li>orientation</li>
+   </ul>
+ </section>
+</div> 
+ -->
+
+
+
+ <div class="slide transitionSlide far-far-future">
+  <header>HTML5 Boilerplate</header>
+  <section class="flex hbox boxcenter">
+      <object data="http://html5boilerplate.com/">
+             <object data="./assets/bplatess.png"></object>
+      </object>
+  </section>
+ </div>
+
+
+  
+<div class="slide transitionSlide far-far-future">
+ <section class="flex hbox boxcenter">
+   <div class="noflex vbox boxcenter">
+     <div class="section"></div>
+     <h2><code>&lt;meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"&gt;</code></h2>
+   </div>
+ </section>
+</div>
+
+
+
+<div class="slide far-far-future"> 
+  <header>Wrap up</header> 
+  <section class="hbox "> 
+    <ul style="font-size: 35px;"> 
+           <li>Canvas, WebGL, CSS Transforms</li>
+           <li>Local Storage, Speech input, Device orientation, Geolocation, Web Sockets</li>
+           <li>Feature detection via Modernizr</li>
+           <li>Polyfills plus yepnope to fill in the gaps</li>
+           <li>The Chrome Web Store is your playground</li>
+           <li>This list has six bullets</li>
+     </ul> 
+  </section> 
+</div> 
+
+
+
+<!-- Key Take-Aways -->
+<div class="slide far-far-future">
+  <header>Thank you, kindly.</header>
+  <section>
+  
+  <ul class="summary" style="font-size: 51px; list-style-type:none;">
+    <li><a href="http://twitter.com/paul_irish">@paul_irish</a></li>
+    <li><a href="http://paulirish.com/">paulirish.com</a></li>
+    <li>&nbsp;</li>
+    <li><a href="http://twitter.com/borismus">@borismus</a></li>
+    <li><a href="http://smus.com/">smus.com</a></li>
+    </ul>
+  </section>
+  
+  
+</div>
+
+
+
+
+
+
+      </div> <!-- slides -->
+    </div> <!-- presentation -->
+  
+
+</body></html>
