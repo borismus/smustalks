@@ -34,7 +34,7 @@
           <br>
           June 2011
           <br>
-          <a href="#">http://goo.gl/todo/shortlink</a>
+          <a href="http://goo.gl/4zUDS">http://goo.gl/4zUDS</a>
         </p>
       </article>
 
@@ -62,10 +62,10 @@
       <article>
       <h3>Who cares?</h3>
       <ul>
-        <li>Mobile is important</li>
         <li>500M smartphones by 2011, 1B by 2013</li>
-        <li>Mobile Web is huge too</li>
         <li>Mobile search up sixfold since 2 years ago, soon &gt; desktop</li>
+        <img src="images/mobile-projection.png" style="width: 500px"/>
+        <li>More details in this <a href="images/mobile.jpg">infographic</a></li>
       </ul>
       </article>
 
@@ -82,9 +82,10 @@
       <article>
       <h3>What can you do?</h3>
       <ul>
-        <li>Rich experiences: <a href="http://everytimezone.com">everytimezone</a></li>
         <img src="images/gestures.png" style="height: 400px; float: right;" />
+        <li>Rich experiences: <a href="http://everytimezone.com">everytimezone</a></li>
         <li>Games: <a href="http://www.youtube.com/watch?v=iPpO24FeAX4">flight control</a>, <a href="http://www.youtube.com/watch?v=rB-5feklBN4">multipong</a></li>
+        <li>Multimedia: <a href="http://www.youtube.com/watch?v=PuQl8T6ZHmE">djay</a>, <a href="http://www.youtube.com/watch?v=Tbo2Wk5PgVQ">reactable</a></li>
       </ul>
       </article>
 
@@ -169,6 +170,7 @@
   content="width=device-width, height=device-height,
   initial-scale=1.0, user-scalable=no"&gt;
           </pre>
+          <li>Also see this post regarding an <a href="http://www.blog.highub.com/mobile-2/a-fix-for-iphone-viewport-scale-bug/">iPhone viewport bug</a></li>
         </ul>
       </article>
 
@@ -202,12 +204,13 @@ mySelector {
       <h3>Don't render too often</h3>
       <ul>
         <li>Touch events fire quickly and furiously</li>
-        <li>This is expensive:</li>
+        <li>Many fingers! This can be expensive:</li>
         <pre>
 canvas.addEventListener('touchmove', function(event) {
   renderTouches(event.touches);
 }, false);
         </pre>
+        <li>Strategies: throttle (prioritize), debounce (deprioritize) or...</li>
       </ul>
       </article>
 
@@ -226,14 +229,17 @@ timer = setInterval(function() {
   renderTouches(touches);
 }, 15);
         </pre>
-        <li>Eventually <code>requestAnimationFrame</code></li>
+        <li>Eventually <code>requestAnimationFrame</code> (use the <a href="http://paulirish.com/2011/requestanimationframe-for-smart-animating/">shim</a>)</li>
       </ul>
       </article>
 
       <article>
       <h3>Aside: iOS5 Mobile Goodies</h3>
       <ul>
-        <li>TODO: Finish</li>
+        <li><code>position:fixed</code> for headers and footers</li>
+        <li><code>overflow:scroll</code> for scrolling divs (but no inertia)</li>
+        <li>DateTime, range input types</li>
+        <li>A lot more love. Read it <a href="http://davidbcalhoun.com/2011/new-mobile-safari-stuff-in-ios5-position-fixed-overflow-scroll-new-input-type-support-web-workers-ecmascript-5">and weep!</a> (tears of joy)</li>
       </ul>
       </article>
 
@@ -248,7 +254,6 @@ timer = setInterval(function() {
         <li>Track your <a href="http://smus.com/x/touch/controller/Touches.html">fingers</a></li>
         <li>Drag your <a href="http://quirksmode.org/m/tests/drag.html">div</a></li>
         <li>Drag many of your <a href="http://quirksmode.org/m/tests/drag2.html">divs</a></li>
-        <li>Browse your <a href="http://everytimezone.com">timezones</a></li>
       </ul>
       </article>
 
@@ -259,6 +264,14 @@ timer = setInterval(function() {
         <li>Finger <a href="http://smus.com/x/touch/draw.html">painting</a></li>
         <li>Fruit ninja with <a href="http://smus.com/x/browser-ninja/">browsers</a></li>
         <li>Multi-touch <a href="http://smus.com/x/touch/controller/TouchControl.html">game controller</a></li>
+      </ul>
+      </article>
+
+      <article>
+      <h3>Apps</h3>
+      <ul>
+        <li>Nice scrolling with <a href="http://joehewitt.github.com/scrollability/">scrollability</a>: <a href="http://uponahill.com">uponahill</a></li>
+        <li>Browse your <a href="http://everytimezone.com">timezones</a></li>
       </ul>
       </article>
 

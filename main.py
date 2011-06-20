@@ -20,14 +20,7 @@ import os
 
 class MainHandler(webapp.RequestHandler):
   def get(self, preso_dir):
-    base_dir = os.path.dirname(__file__)
-    full_dir = os.path.join(base_dir, 'static', preso_dir)
-    print os.path.exists(base_dir), base_dir
-    print os.path.exists(full_dir), full_dir
-    template_values = {'base_dir': self.request.path_url}
-    path = os.path.join(full_dir, 'index.html')
-    print path
-    self.response.out.write(template.render(path, template_values))
+    self.redirect(preso_dir + '/')
 
 
 def main():

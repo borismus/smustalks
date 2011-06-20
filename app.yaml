@@ -4,6 +4,9 @@ runtime: python
 api_version: 1
 
 handlers:
+- url: /[^\/]+
+  script: main.py
+
 - url: (.*)/
   static_files: static\1/index.html
   upload: static/index.html
