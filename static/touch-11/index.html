@@ -60,6 +60,16 @@
       </article>
 
       <article>
+      <h3>Touch screens</h3>
+      <ul>
+        <li>iOS, Android: Capacitive touch screens</li>
+        <li>Touch: dominant mobile interaction</li>
+        <li>Tons of touch-based applications available</li>
+        <li>Powerful APIs. Track 11 <a href="http://mattgemmell.com/2010/05/09/ipad-multi-touch">simultaneous touches</a></li>
+      </ul>
+      </article>
+
+      <article>
       <h3>Who cares?</h3>
       <ul>
         <li>500M smartphones by 2011, 1B by 2013</li>
@@ -70,20 +80,10 @@
       </article>
 
       <article>
-      <h3>Touch screens</h3>
-      <ul>
-        <li>Hello iOS, Hello Android!</li>
-        <li>Capacitive touch screens</li>
-        <li>Touch: dominant mobile interaction</li>
-        <li>Tons of touch-based applications available</li>
-      </ul>
-      </article>
-
-      <article>
       <h3>What can you do?</h3>
       <ul>
         <img src="images/gestures.png" style="height: 400px; float: right;" />
-        <li>Rich experiences: <a href="http://everytimezone.com">everytimezone</a></li>
+        <li>Rich <a href="http://www.lukew.com/touch/TouchGestureGuide.pdf">gestures</a>: pinchzoom, rotate, etc</li>
         <li>Games: <a href="http://www.youtube.com/watch?v=iPpO24FeAX4">flight control</a>, <a href="http://www.youtube.com/watch?v=rB-5feklBN4">multipong</a></li>
         <li>Multimedia: <a href="http://www.youtube.com/watch?v=PuQl8T6ZHmE">djay</a>, <a href="http://www.youtube.com/watch?v=Tbo2Wk5PgVQ">reactable</a></li>
       </ul>
@@ -118,7 +118,10 @@
           Not: <code>touchenter touchleave touchcancel</code>
           </li>
           <li>
-          Fingers: <code>touches targetTouches changedTouches</code>
+          Touch lists: <code>touches targetTouches changedTouches</code>
+          </li>
+          <li>
+          Touch: <code>target identifier x y</code>
           </li>
         </ul>
       </article>
@@ -171,6 +174,7 @@
   initial-scale=1.0, user-scalable=no"&gt;
           </pre>
           <li>Also see this post regarding an <a href="http://www.blog.highub.com/mobile-2/a-fix-for-iphone-viewport-scale-bug/">iPhone viewport bug</a></li>
+          <li>More on meta viewport on <a href="https://developer.mozilla.org/en/Mobile/Viewport_meta_tag">MDC</a></li>
         </ul>
       </article>
 
@@ -298,9 +302,10 @@ timer = setInterval(function() {
       <h3>Debugging</h3>
       <ul>
         <li>It's difficult on mobile</li>
+        <li>iPad pro-tip: turn on <a href="http://developer.apple.com/library/safari/#documentation/appleapplications/Conceptual/Safari_Developer_Guide/2SafariDeveloperTools/SafariDeveloperTools.html">debug console</a></li>
         <li>Webkit Inspector/Chrome Devtools are awesome!</li>
         <li>Remote debugging (natively in RIM's Playbook).</li>
-        <li>Also see <a href="http://phonegap.github.com/weinre/">Weinre</a> (haven't tried it yet)</li>
+        <li>Also see <a href="http://phonegap.github.com/weinre/">Weinre</a></li>
       </ul>
       </article>
 
