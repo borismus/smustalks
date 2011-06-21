@@ -205,6 +205,20 @@ mySelector {
       </article>
 
       <article>
+      <h3>Hide the URL bar</h3>
+      <ul>
+        <li>Is it really a browser?</li>
+        <pre>
+setTimeout(function () {
+  window.scrollTo(0, 1);
+}, 1000);
+        </pre>
+        <li>window.onload fires too early. Hash in the URL?</li>
+        <li>Nice <a href="http://remysharp.com/2010/08/05/doing-it-right-skipping-the-iphone-url-bar/">article</a> about doing it right.</li>
+      </ul>
+      </article>
+
+      <article>
       <h3>Don't render too often</h3>
       <ul>
         <li>Touch events fire quickly and furiously</li>
