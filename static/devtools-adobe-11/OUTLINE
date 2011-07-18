@@ -1,0 +1,72 @@
+MultiTouch Talk for Vancouver
+=============================
+
+TODO: look at
+http://quirksmode.org/touchevents/
+
+## introduction
+
+- why touch matters
+  - some stats about how many mobile devices there are
+  - how many of them have touch screens
+- what touch events are
+  - why not just use mouse events!?
+- touch events available in the spec (talk about new spec and touch events)
+- browser support and stuff (show caniuse.com, quirksmode.org table)
+
+## development tips
+
+- tip: don't render too often
+  - http://smus.com/x/touch/tracker.html vs tracker-slow.html
+- tip: set viewport
+- tip: disable scrolling on iOS
+- tip: click delays on mobile devices
+(http://code.google.com/mobile/articles/fast_buttons.html)
+- tip: orientation probably matters.
+- tip: -webkit-touch-callout: none;
+
+## cool demos (show on ipad)
+
+single touch:
+- http://quirksmode.org/m/tests/drag.html basic touch
+- everytimezone.com for nice touch interface
+
+multitouch:
+- tracking fingers on the surface
+    http://smus.com/x/touch/controller/Touches.html
+- multitouch drag
+    http://quirksmode.org/m/tests/drag.html basic touch
+
+orientation:
+- 
+
+apps:
+- http://spark.attrakt.se/ for static electricity demo
+- paul's MT drawing application
+    http://smus.com/x/touch/controller/Touches.html
+- hybrid browser ninja game
+    http://smus.com/x/browser-ninja/
+- multitouch game controller
+    http://smus.com/x/touch/controller/TouchControl.html
+
+## developer tools
+
+gestures:
+- apple's gestures API, and polyfills
+- http://dev.sencha.com/deploy/touch/examples/kitchensink/
+- show graphic of images
+
+simulate events:
+- phantom limb for single touch
+- multitouch on laptop via MagicTouch.js
+- remote debugging super useful (so far just PlayBook)
+
+## multitouch resources for you
+
+http://www.html5rocks.com/mobile/touch.html
+http://sebleedelisle.com/2011/04/multi-touch-game-controller-in-javascripthtml5-for-ipad/
+http://www.quirksmode.org/mobile/tableTouch.html
+http://developer.apple.com/library/safari/#documentation/appleapplications/reference/SafariWebContent/HandlingEvents/HandlingEvents.html
+http://www.blackberry.com/developers/docs/webworks/api/Element.html
+http://code.google.com/mobile/articles/fast_buttons.html
+http://dev.sencha.com/deploy/touch/examples/kitchensink/
