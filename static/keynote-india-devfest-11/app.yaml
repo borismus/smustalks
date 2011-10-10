@@ -1,0 +1,32 @@
+application: india-devfest-keynote
+version: 1
+runtime: python
+api_version: 1
+
+#default_expiration: "30d"
+
+handlers:
+
+- url: /admin/.*
+  script: $PYTHON_LIB/google/appengine/ext/admin
+  login: admin
+
+- url: /demos
+  static_dir: demos
+
+- url: /images
+  static_dir: images
+
+- url: /css
+  static_dir: css
+
+- url: /js
+  static_dir: js
+
+- url: /sounds
+  static_dir: sounds
+  
+- url: /
+  static_files: index.html
+  upload: index.html
+

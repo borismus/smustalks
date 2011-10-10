@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML5 and Chrome Developer Tools</title>
+
+    <meta charset='utf-8' />
+    <script src='slides.js'></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-17930798-24']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+     </script>
+  </head>
+
+  <body style='display: none'>
+
+    <section class='slides layout-regular'>
+
+      <article class='biglogo'></article>
+
+      <article>
+        <h1>
+          Chrome Developer Tools
+        </h1>
+        <p>
+        Boris Smus (<a href="http://twitter.com/borismus">@borismus</a>)
+          <br>
+          Hyderabad, India
+          <br>
+          September 2011
+        </p>
+      </article>
+
+      <article>
+      <h3>Agenda</h3>
+      <ul>
+        <li>Introduction</li>
+        <li>Developer flow</li>
+        <li>Sweet tips</li>
+        <li>Debugging</li>
+        <li>Near future</li>
+      </ul>
+      </article>
+
+      <article>
+      <h3>2006</h3>
+      <img class="centered" src="images/2006.png"/>
+      <p>The first WebKit Web Inspector</p>
+      </article>
+
+      <article>
+      <h3>2007</h3>
+      <img class="centered" src="images/2007.png"/>
+      </article>
+
+      <article>
+      <h3>2008</h3>
+      <img class="centered" src="images/2008.png"/>
+      </article>
+
+      <article>
+      <h3>2009</h3>
+      <img class="centered" src="images/2009.png"/>
+      </article>
+
+      <article>
+      <h3>2010</h3>
+      <img class="centered" src="images/2010.png"/>
+      </article>
+
+      <article>
+      <h3>One-page Overview</h3>
+      <a href="http://smus.com/devtools-cheatsheet">
+        <img class="centered" src="images/overview.jpg"/>
+      </a>
+      </article>
+
+      <article>
+      <h3>Today</h3>
+      <ul>
+        <li>Packed with HTML5 features</li>
+        <li>Local storage, Application Cache</li>
+        <li>Powerful debugging, including Web Workers</li>
+        <li>An improved workflow</li>
+      </ul>
+      </article>
+
+      <article class="fill" style="color: white;">
+      <h1 style="color:white">Developer Flow</h1>
+      <p>A day in the life with chrome developer tools</p>
+      <img src="images/floe.png"/>
+      </article>
+
+      <article>
+      <h3>Editing</h3>
+      <ul>
+        <li>Inline styles</li>
+        <li>New style rule</li>
+        <li>Block editing CSS/JS/HTML</li>
+      </ul>
+      </article>
+
+      <article>
+      <h3>Ch-ch-ch-ch-Changes</h3>
+      <ul>
+        <li>Changes synced across panels</li>
+        <li>Local revision history</li>
+        <li>Save to disk</li>
+        <li>Your new IDE?</li>
+      </ul>
+      </article>
+
+      <article class="fill" style="color: white;">
+      <h1 style="color:white">Pro Tips</h1>
+      <p>Handy shortcuts</p>
+      <img src="images/tips.jpg"/>
+      </article>
+
+      <article>
+      <h3>Niceties</h3>
+      <ul>
+        <li>Autocomplete everywhere (keys, values)</li>
+        <li>Tab between properties</li>
+        <li>Color manipulation (HSL)</li>
+        <li>Inspect pseudo-class selectors</li>
+        <li>Keyboard shortcuts!</li>
+        <li>Configurable options (right click the console)</li>
+      </ul>
+      </article>
+
+      <article>
+      <h3>Console API</h3>
+      <ul>
+        <li>Firebug Command Line <a href="http://getfirebug.com/wiki/index.php/Command_Line_API">API</a></li>
+        <li>console.log takes n parameters!</li>
+        <li>copy()</li>
+        <li>inspect() and $0</li>
+      </ul>
+      </article>
+
+      <article class="fill" style="color: white;">
+      <h1 style="color:white">Debugging</h1>
+      <p>For serious JS applications</p>
+      <img src="images/debug.jpg"/>
+      </article>
+
+      <article>
+      <h3>Script debugging</h3>
+      <ul>
+        <li>See call stack</li>
+        <li>Jump to line (C-L)</li>
+        <li>Search in a file</li>
+        <li>Stepping in/out/over</li>
+        <li>Pretty printing!</li>
+      </ul>
+      </article>
+
+      <article>
+      <h3>Breakpoints galore</h3>
+      <ul>
+        <li>Conditional breakpoints</li>
+        <li>Exception breakpoints</li>
+        <li>DOM breakpoints</li>
+        <li>Event breakpoints</li>
+        <li>XHR breakpoints</li>
+      </ul>
+      </article>
+
+      <article class="fill">
+      <h1>The Future</h1>
+      <p>= more goodies</p>
+      <img src="images/future.jpg"/>
+      </article>
+
+      <article>
+      <h3>Chrome extensions</h3>
+      <ul>
+        <li>Now an API for extending devtools</li>
+        <li>Experimental for now (see about:flags)</li>
+        <li>Add Audits and Panels</li>
+        <li>Example: <a href="https://github.com/borismus/jshint-extension">JSHint audit</a></li>
+        <li>More information: <a href="http://smus.com/extending-chrome-developer-tools">on extending cdt</a></li>
+      </ul>
+      </article>
+
+      <article>
+      <h3>Modify the devtools themselves</h3>
+      <ul>
+        <li>It's just a web app. JS/HTML/CSS</li>
+        <li>Download <a href="http://commondatastorage.googleapis.com/chromium-browser-continuous/index.html">frontend</a>, run Chrome with <pre>--debug-devtools-frontend=/path/to/frontend</pre></li>
+        <li>Make it easier: use <a href="https://gist.github.com/1093476">chromiumer</a></li>
+        <li>Submit your patch back to WebKit!</li>
+      </ul>
+      </article>
+
+      <article>
+      <h3>Remote debugging</h3>
+      <ul>
+        <li>--remote-debugging-port=31337</li>
+        <li>Blackberry PlayBook only</li>
+        <li>Also see <a href="http://pmuellr.github.com/weinre/">weinre</a> <span style="font-size: 80%">(WEb INspector REmote)</span></li>
+      </ul>
+      </article>
+
+      <article>
+      <h3>Resources</h3>
+      <ul>
+        <li>Videos and docs on the <a href="http://code.google.com/chrome/devtools/">official site</a></li>
+        <li>Command line <a href="http://getfirebug.com/wiki/index.php/Command_Line_API">API reference</a></li>
+        <li>File a bug on <a href="http://new.crbug.com">new.crbug.com</a></li>
+        <li>Blog posts: <a href="http://smus.com/devtools-cheatsheet">cheat sheet</a> and <a href="http://smus.com/extending-chrome-developer-tools">extending</a></li>
+      </ul>
+      <h2>Thanks! <a href="http://twitter.com/borismus">@borismus</a></h2>
+      </article>
+
+    </section>
+
+  </body>
+</html>
